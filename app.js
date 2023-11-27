@@ -1,20 +1,21 @@
-const readlineSync = require("readline-sync")
-const {generarNumeroAleatorio, verificarNumeroAleatorio} = require("./adivinanza")
+const readlineSync = require('readline-sync');
 
-const obtenerNumero = () => {
-	return readlineSync.question("Ingrese el numero: ")
-}
+const { generarNumeroAleatorio, verificarAdivinanza } = require('./adivinanza');
 
-const jugarAdivinanza = () => {
-	const numeroSecreto = generarNumeroAleatorio
-	let numeroAdivinado = 0
+const obtenerNumeroUsuario = () => {
+    return readlineSync.question('Ingresa un número: ');
+};
+const juegoAdivinanza = () => {
+    const numeroSecreto = generarNumeroAleatorio();
+    let numeroAdivinado = 0;
+    
+    console.log('¡Bienvenido a Adivina el número secreto!');
+    console.log('Intenta adivinar el número del 1 al 100.\n');
+    
+    while (numeroAdivinado !== numeroSecreto) {
+        numeroAdivinado = obtenerNumeroUsuario();
+        verificarAdivinanza(numeroSecreto, numeroAdivinado);
+    }
+};
 
-	console.log("BIENVENIDO, INTENTA ADIVINAR EL NUMERO SECRETO")
-
-	while( numeroAdivinado !== numeroSecreto){
-		numeroAdivinado = obtenerNumero();
-		verificarNumeroAleatorio(numeroSecreto, numeroAdivinado)
-	}
-}
-
-jugarAdivinanza();
+juegoAdivinanza();
