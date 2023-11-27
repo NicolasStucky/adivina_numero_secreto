@@ -1,19 +1,21 @@
-const generarNumeroAleatorio = ()=>{
-	return Math.floor(Math.random() * 100 ) + 1
-}
+const generarNumeroAleatorio = () => {
+    return Math.floor(Math.random() * 100) + 1;
+};
 
-const verificarNumeroAleatorio = (numeroSecreto, numeroAdivinado)=>{
-	if(numeroAdivinado === numeroSecreto){
-		console.log("FELICIDADES NUMERO ADIVINADO")
-	}
-	else if(numeroAdivinado > numeroSecreto){
-		console.log("Casi, el numero secreto es menor ")
-	}else if (numeroAdivinado < numeroSecreto){
-		console.log("Casi, el numero secreto es mayor")
-	}
-}
+const verificarAdivinanza = (numeroSecreto, numeroAdivinado) => {
 
+    numeroAdivinado = parseInt(numeroAdivinado, 10);
+
+    if (numeroAdivinado === numeroSecreto) {
+    console.log('¡Felicitaciones! ¡Adivinaste el número secreto!');
+    } else if (numeroAdivinado > numeroSecreto) {
+    console.log('El número secreto es menor. ¡Sigue intentando!');
+    } else {
+    console.log('El número secreto es mayor. ¡Sigue intentando!');
+    }
+};
 module.exports = {
-	generarNumeroAleatorio,
-	verificarNumeroAleatorio
-}
+    generarNumeroAleatorio,
+    verificarAdivinanza
+};
+    
